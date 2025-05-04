@@ -1,9 +1,10 @@
 import time
 import boto3
-route53 = boto3.client('route53')
-dynamodb = boto3.client('dynamodb')
-awslambda = boto3.client('lambda')
-cloudformation = boto3.client('cloudformation')
+session = boto3.session.Session(profile_name='dns')
+route53 = session.client('route53')
+dynamodb = session.client('dynamodb')
+awslambda = session.client('lambda')
+cloudformation = session.client('cloudformation')
 
 newhz = False
 
